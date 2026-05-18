@@ -1,0 +1,210 @@
+/* 全局重置 */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 页面基础样式 */
+body {
+    background-color: #f5f5f5;
+    animation: fadeIn 0.5s ease; /* 页面淡入动画 */
+    font-family: "微软雅黑", "Microsoft YaHei", sans-serif; /* 统一字体 */
+}
+
+/* 导航栏样式 */
+.jm {
+    width: 100%;
+    overflow: hidden;
+    position: sticky; /* 导航栏吸顶 */
+    top: 0;
+    z-index: 999; /* 防止被遮挡 */
+}
+.jm ul {
+    list-style: none;
+    display: flex; /* 替代float，布局更稳定 */
+    width: 100%;
+}
+.jm li {
+    width: 25%;
+    height: 62px;
+    text-align: center;
+    background-color: #020202;
+}
+.jm a {
+    text-decoration: none;
+    font: 32px 微软雅黑;
+    color: #575f7a;
+    font-weight: bold;
+    line-height: 62px; /* 文字垂直居中 */
+    display: block; /* 点击区域覆盖整个li */
+}
+/* 导航hover效果 */
+.jm a:hover {
+    color: #fff;
+    background-color: #333;
+    transition: all 0.3s ease;
+    transform: scale(1.05); /* 轻微放大，增强交互 */
+}
+/* 当前页高亮 */
+.jm a.active {
+    color: #fff;
+    background-color: #ff6600;
+}
+
+/* 响应式适配（小屏幕） */
+@media (max-width: 768px) {
+    .jm a {
+        font-size: 18px;
+    }
+    .jm li {
+        height: 40px;
+    }
+    .jm a {
+        line-height: 40px;
+    }
+}
+/* 超小屏适配（手机） */
+@media (max-width: 480px) {
+    .jm a {
+        font-size: 16px;
+    }
+}
+
+/* 页面淡入动画 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 角色页面图片布局 */
+.tp {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+    justify-content: center;
+}
+.tp img {
+    width: calc(25% - 10px);
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* 图片悬浮动画 */
+    /* 图片懒加载 */
+    loading: lazy;
+}
+/* 角色图片悬浮效果 */
+.tp img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+/* 角色页响应式 */
+@media (max-width: 768px) {
+    .tp img {
+        width: calc(50% - 10px);
+    }
+}
+@media (max-width: 480px) {
+    .tp img {
+        width: 100%;
+    }
+}
+
+/* 视频页面样式 */
+.sp {
+    padding: 20px;
+    text-align: center;
+}
+.sp iframe {
+    width: 80%;
+    height: 500px;
+    border: none;
+    border-radius: 8px; /* 圆角优化 */
+}
+/* 视频页响应式 */
+@media (max-width: 768px) {
+    .sp iframe {
+        width: 100%;
+        height: 300px;
+    }
+}
+/* 手机端视频高度适配 */
+@media (max-width: 480px) {
+    .sp iframe {
+        height: 200px;
+    }
+}
+
+/* 剧情页面样式 */
+.jq-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.jq-content h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.jq-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+    text-indent: 2em; /* 文本缩进，增强排版 */
+}
+.jq-content img {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px; /* 图片圆角 */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* 轻微阴影 */
+    loading: lazy; /* 懒加载 */
+}
+
+/* 首页样式 */
+.home-content {
+    padding: 20px;
+    text-align: center;
+}
+.home-content h1 {
+    font-size: 40px;
+    color: #333;
+    margin: 30px 0;
+}
+.home-content p {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 20px; /* 调整间距 */
+    line-height: 1.6;
+}
+.home-content img {
+    width: 100%;
+    max-width: 1000px;
+    margin: 30px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    loading: lazy; /* 懒加载 */
+}
+/* 首页响应式 */
+@media (max-width: 768px) {
+    .home-content h1 {
+        font-size: 30px;
+    }
+    .home-content p {
+        font-size: 16px;
+    }
+}
+@media (max-width: 480px) {
+    .home-content h1 {
+        font-size: 24px;
+    }
+    .home-content p {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+}
