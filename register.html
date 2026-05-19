@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>账号注册 - 克鲁赛德战记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f7f3eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .reg-box {
+            background: #fff;
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .reg-box h2 {
+            text-align: center;
+            color: #79552c;
+            margin-bottom: 30px;
+            font-size: 26px;
+            border-left: 5px solid #d4af37;
+            padding-left: 10px;
+        }
+        .input-box {
+            margin-bottom: 22px;
+        }
+        .input-box label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 15px;
+        }
+        .input-box input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+        .input-box input:focus {
+            border-color: #d4af37;
+        }
+        .reg-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #d4af37;
+            color: #222;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .reg-btn:hover {
+            background-color: #c09e27;
+        }
+        .login-tip {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .login-tip a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="reg-box">
+        <h2>新用户注册</h2>
+        <div class="input-box">
+            <label>设置用户名</label>
+            <input type="text" id="regName" placeholder="请输入用户名">
+        </div>
+        <div class="input-box">
+            <label>设置密码</label>
+            <input type="password" id="regPwd" placeholder="请输入密码">
+        </div>
+        <div class="input-box">
+            <label>确认密码</label>
+            <input type="password" id="rePwd" placeholder="请再次输入密码">
+        </div>
+        <button class="reg-btn" onclick="userRegister()">完成注册</button>
+        <div class="login-tip">已有账号？<a href="login.html">去登录</a></div>
+    </div>
+
+<script>
+function userRegister(){
+    let name = document.getElementById('regName').value.trim();
+    let pwd = document.getElementById('regPwd').value.trim();
+    let repwd = document.getElementById('rePwd').value.trim();
+    let userList = JSON.parse(localStorage.getItem('userData')) || [];
+
+    if(name==''||pwd==''||repwd==''){
+        alert('请填写完整信息！');
+        return;
+    }
+    if(pwd != repwd){
+        alert('两次密码不一致！');
+        return;
+    }
+    for(let i=0;i<userList.length;i++){
+        if(userList[i].name === name){
+            alert('用户名已被注册！');
+            return;
+        }
+    }
+    userList.push({name:name,password:pwd});
+    localStorage.setItem('userData',JSON.stringify(userList));
+    alert('注册成功！即将跳转到登录');
+    location.href = 'login.html';
+}
+</script>
+</body>
+</html>
