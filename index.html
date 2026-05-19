@@ -2,10 +2,11 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <!-- 适配手机必备：确保网页在手机上正常缩放 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>克鲁赛德战记 - 主页</title>
     <style>
-        /* 全局样式初始化 */
+        /* 全局样式初始化：清除浏览器默认边距，统一盒模型 */
         * {
             margin: 0;
             padding: 0;
@@ -18,7 +19,7 @@
             scroll-behavior: smooth;
         }
 
-        /* 整体柔和背景色 */
+        /* 页面背景色：柔和米色 */
         body {
             background-color: #f7f3eb;
         }
@@ -28,23 +29,23 @@
             list-style: none;
         }
 
-        /* 清除超链接下划线 */
+        /* 清除链接下划线 */
         a {
             text-decoration: none;
             color: #333;
         }
 
-        /* 图片自适应居中展示 */
+        /* 图片自适应：手机/电脑都不会超出屏幕 */
         img {
             max-width: 100%;
             display: block;
         }
 
-        /* 页面主体居中容器 */
+        /* 页面主体容器：居中、左右留白 */
         .container {
             max-width: 1180px;
             margin: 25px auto;
-            padding: 0 20px;
+            padding: 0 20px; /* 手机端左右留白，不贴边 */
         }
 
         /* 统一板块标题样式 */
@@ -57,7 +58,7 @@
             font-weight: 600;
         }
 
-        /* 通用白色内容卡片 */
+        /* 白色内容卡片 */
         .content-block{
             background: #ffffff;
             padding: 30px;
@@ -66,7 +67,7 @@
             box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
-        /* 正文段落文字样式 */
+        /* 段落文字样式 */
         .content-block p{
             line-height: 1.9;
             color: #555;
@@ -74,12 +75,12 @@
             font-size: 15px;
         }
 
-        /* 列表左侧内边距 */
+        /* 列表缩进 */
         .content-block ul{
             padding-left: 25px;
         }
 
-        /* 列表条目统一样式 */
+        /* 列表项样式 */
         .content-block li{
             line-height: 1.8;
             margin: 8px 0;
@@ -87,14 +88,14 @@
             font-size: 15px;
         }
 
-        /* 左右均分双栏布局 */
+        /* 双栏布局：电脑端左右排列 */
         .two-col{
             display: flex;
             gap: 30px;
             margin-bottom: 35px;
         }
 
-        /* 双栏卡片样式 */
+        /* 双栏每一栏 */
         .col-half{
             flex: 1;
             background: #fff;
@@ -103,7 +104,7 @@
             box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
-        /* PVP竞技图文排版布局 */
+        /* PVP图文布局 */
         .pvp-box {
             display: flex;
             align-items: center;
@@ -112,12 +113,10 @@
             margin-top: 20px;
         }
 
-        /* PVP文字区域宽度占比 */
         .pvp-text {
             flex: 1.2;
         }
 
-        /* PVP图片精美容器 */
         .pvp-img-box {
             flex: 0.8;
             border-radius: 16px;
@@ -125,7 +124,7 @@
             box-shadow: 0 5px 18px rgba(0,0,0,0.12);
         }
 
-        /* 顶部导航栏固定样式 */
+        /* 导航栏：吸顶、固定顶部 */
         nav {
             background-color: #2b241a;
             position: sticky;
@@ -134,20 +133,20 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
-        /* 导航菜单横向排列 */
+        /* 导航菜单：横向排列 */
         nav ul {
             display: flex;
             max-width: 1180px;
             margin: 0 auto;
         }
 
-        /* 导航选项均分宽度 */
+        /* 导航项均分宽度 */
         nav li {
             flex: 1;
             text-align: center;
         }
 
-        /* 导航文字基础样式 */
+        /* 导航链接样式 */
         nav a {
             display: block;
             color: #f1e9d8;
@@ -156,7 +155,7 @@
             transition: all 0.3s ease;
         }
 
-        /* 导航悬浮与选中状态 */
+        /* 导航悬浮/选中效果 */
         nav a:hover,
         nav a.active {
             background-color: #d4af37;
@@ -164,7 +163,7 @@
             font-weight: 500;
         }
 
-        /* 首页轮播图容器 */
+        /* 轮播图容器 */
         .slider {
             width: 100%;
             height: 430px;
@@ -176,7 +175,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        /* 轮播图片定位与渐变切换 */
+        /* 轮播图片渐变切换 */
         .slider img {
             position: absolute;
             width: 100%;
@@ -186,12 +185,12 @@
             transition: opacity 0.9s ease;
         }
 
-        /* 当前显示轮播图 */
+        /* 当前显示的轮播图 */
         .slider img.active {
             opacity: 1;
         }
 
-        /* 轮播小圆点容器 */
+        /* 轮播指示器圆点容器 */
         .dots {
             position: absolute;
             bottom: 20px;
@@ -202,7 +201,7 @@
             z-index: 10;
         }
 
-        /* 轮播圆点默认样式 */
+        /* 圆点样式 */
         .dot {
             width: 14px;
             height: 14px;
@@ -212,13 +211,13 @@
             transition: 0.3s;
         }
 
-        /* 激活轮播圆点 */
+        /* 激活状态圆点 */
         .dot.active {
             background: #ffffff;
             transform: scale(1.15);
         }
 
-        /* 顶部滚动公告栏 */
+        /* 滚动公告栏 */
         .notice {
             background: #fff;
             padding: 15px 25px;
@@ -230,7 +229,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        /* 公告横向滚动动画 */
+        /* 公告滚动动画 */
         .notice p {
             animation: notice 18s linear infinite;
             font-size: 15px;
@@ -240,7 +239,7 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* 热门角色网格布局 */
+        /* 角色网格：电脑端6个一行 */
         .role-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -248,7 +247,7 @@
             margin-bottom: 45px;
         }
 
-        /* 角色展示卡片 */
+        /* 角色卡片 */
         .role-card {
             background: #fff;
             border-radius: 16px;
@@ -258,12 +257,12 @@
             transition: transform 0.3s ease;
         }
 
-        /* 角色卡片悬浮上浮效果 */
+        /* 卡片悬浮效果 */
         .role-card:hover {
             transform: translateY(-6px);
         }
 
-        /* 角色头像尺寸 */
+        /* 角色图片 */
         .role-card img {
             width: 100%;
             height: 140px;
@@ -272,21 +271,21 @@
             border-radius: 10px;
         }
 
-        /* 角色名称文字 */
+        /* 角色名称 */
         .role-card p {
             color: #79552c;
             font-weight: 600;
             font-size: 15px;
         }
 
-        /* 剧情活动双栏卡片 */
+        /* 双列卡片布局 */
         .two-box {
             display: flex;
             gap: 30px;
             margin-bottom: 35px;
         }
 
-        /* 通用信息卡片 */
+        /* 单个信息卡片 */
         .box {
             flex: 1;
             background: #fff;
@@ -296,7 +295,6 @@
             box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
-        /* 卡片内文字排版 */
         .box p {
             color: #555;
             line-height: 1.9;
@@ -304,7 +302,7 @@
             font-size: 15px;
         }
 
-        /* 回到顶部悬浮按钮 */
+        /* 回到顶部按钮 */
         #backTop {
             position: fixed;
             bottom: 45px;
@@ -326,12 +324,12 @@
             box-shadow: 0 4px 12px rgba(212,175,55,0.35);
         }
 
-        /* 按钮显示状态 */
+        /* 按钮显示 */
         #backTop.show {
             opacity: 1;
         }
 
-        /* 网站底部页脚 */
+        /* 页脚 */
         footer {
             background-color: #2b241a;
             color: #d1c8b8;
@@ -341,18 +339,84 @@
             font-size: 15px;
         }
 
-        /* 移动端自适应适配 */
+        /* ====================================================== */
+        /* 手机端优化：768px以下自动生效，让页面工整不拥挤 */
+        /* ====================================================== */
         @media (max-width:768px) {
-            .slider { height: 260px; }
-            .role-grid { grid-template-columns: repeat(3,1fr); }
-            .two-box,.two-col,.pvp-box { flex-direction: column; }
-            nav ul { flex-wrap: wrap; }
-            nav li { flex: 0 0 50%; }
+
+            /* 轮播图高度缩小，不会占满手机屏幕 */
+            .slider { 
+                height: 220px; 
+                border-radius: 12px;
+            }
+
+            /* 角色展示从6个改为3个一行 */
+            .role-grid { 
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 12px; 
+            }
+
+            /* 所有双栏布局 → 手机端竖排（上下排列） */
+            .two-box,
+            .two-col,
+            .pvp-box { 
+                flex-direction: column; 
+                gap: 20px; 
+            }
+
+            /* 导航栏自动换行，变成 2行 排列，不挤在一起 */
+            nav ul { 
+                flex-wrap: wrap; 
+            }
+            nav li { 
+                flex: 0 0 50%; 
+            }
+            nav a {
+                font-size: 14px;
+                padding: 12px 0;
+            }
+
+            /* 缩小卡片内边距，手机端更清爽 */
+            .content-block,
+            .col-half,
+            .box {
+                padding: 20px;
+                border-radius: 12px;
+            }
+
+            /* 标题字体缩小 */
+            .title {
+                font-size: 20px;
+            }
+
+            /* 正文字体缩小 */
+            .content-block p,
+            .box p,
+            .content-block li {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            /* 回到顶部按钮缩小 */
+            #backTop {
+                width: 40px;
+                height: 40px;
+                right: 20px;
+                bottom: 25px;
+                font-size: 18px;
+            }
+
+            /* 容器边距缩小，手机更贴合 */
+            .container {
+                padding: 0 15px;
+                margin: 15px auto;
+            }
         }
     </style>
 </head>
 
 <body>
+
     <!-- 顶部导航栏 -->
     <nav>
         <ul>
@@ -364,34 +428,34 @@
         </ul>
     </nav>
 
-    <!-- 页面主体容器 -->
+    <!-- 页面主体内容 -->
     <div class="container">
-        <!-- 首页轮播图区域 -->
+
+        <!-- 轮播图 -->
         <div class="slider" id="slider" onclick="jumpSlider()">
-           <img src="../../images/soul_duet.png" class="active" alt="灵魂二重奏">
+            <img src="../../images/soul_duet.png" class="active" alt="灵魂二重奏">
             <img src="../../images/siege.png"  alt="骑士团讨伐">           
             <img src="../../images/guardian.png" alt="守护者">
             <div class="dots" id="dots"></div>
         </div>
 
-        <!-- 顶部滚动公告 -->
+        <!-- 滚动公告 -->
         <div class="notice">
             <p>欢迎来到克鲁赛德战记主题网站，了解游戏最全玩法、角色图鉴与最新活动资讯！</p>
         </div>
 
-        <!-- 游戏整体简介 -->
+        <!-- 游戏简介 -->
         <div class="content-block">
             <h3 class="title">游戏简介</h3>
             <p>《克鲁赛德战记》是一款经典复古像素风格二次元冒险手游，独创三消即时战斗玩法，拥有数百名风格各异的勇士角色。游戏兼具休闲养成、策略闯关、多人竞技等多元玩法，庞大完整的世界观搭配细腻角色剧情，长久以来深受广大玩家喜爱。</p>
             <p>游戏画面采用经典像素美术风格，技能特效流畅炫酷，副本内容丰富多样，玩法轻松易上手，同时具备极高的阵容搭配深度，无论是休闲游玩还是深度养成都能获得极佳体验。</p>
         </div>
 
-        <!-- 核心玩法展示区域 -->
+        <!-- 核心玩法 -->
         <section class="gameplay-section">
             <div class="container">
                 <h2 class="title">核心玩法介绍</h2>
 
-                <!-- 三消战斗机制介绍 -->
                 <div class="content-block">
                     <h2>三消即时战斗</h2>
                     <p>游戏独创即时战斗消除系统，无需复杂操作，滑动点击技能方块即可释放对应招式。</p>
@@ -403,14 +467,12 @@
                     <p>每场战斗可上阵三名勇士搭配一名女神，积攒能量释放强力团队必杀技，扭转战局。</p>
                 </div>
 
-                <!-- PVE剧情冒险玩法 -->
                 <div class="content-block">
                     <h2>剧情冒险玩法</h2>
                     <p>跟随主线剧情探索海瑟拉大陆，解锁海量支线关卡与角色专属故事，在冒险途中收集养成材料、招募强力勇士。</p>
                     <p>游戏包含古代地牢、灵魂要塞、试炼之塔等多种特色副本，不同副本产出不同养成资源，满足玩家全方位养成需求。</p>
                 </div>
 
-                <!-- PVP竞技玩法 图文精美排版 -->
                 <div class="content-block">
                     <h2>竞技与协作玩法</h2>
                     <div class="pvp-box">
@@ -427,7 +489,6 @@
                     </div>
                 </div>
 
-                <!-- 角色养成体系介绍 -->
                 <div class="content-block">
                     <h2>角色完整养成体系</h2>
                     <p>游戏拥有剑士、法师、猎人、弓箭手、祭司、骑士六大职业体系，近四百名勇士自由收集搭配。</p>
@@ -436,14 +497,14 @@
             </div>
         </section>
 
-        <!-- 游戏世界观介绍 -->
+        <!-- 世界观 -->
         <div class="content-block">
             <h3 class="title">宏大世界观背景</h3>
             <p>宁静祥和的海瑟拉大陆原本各族生灵安居乐业，直到黑暗魔族冲破远古封印，率领魔物大军入侵整片大陆，战火四起生灵涂炭。</p>
             <p>危难之际，守护大陆的女神降临人间，赋予冒险者强大力量，各地英勇勇士纷纷集结组建反抗军队。玩家将化身大陆冒险者，游历四方结识各路英雄伙伴，揭开魔族入侵背后的巨大阴谋，携手众人一同守护这片大陆的和平与安宁。</p>
         </div>
 
-        <!-- 六大职业分类介绍 -->
+        <!-- 职业介绍 -->
         <div class="two-col">
             <div class="col-half">
                 <h3 class="title">近战物理系职业</h3>
@@ -463,7 +524,7 @@
             </div>
         </div>
 
-        <!-- 热门人气角色展示 -->
+        <!-- 热门勇士 -->
         <h3 class="title">热门人气勇士</h3>
         <div class="role-grid">
             <a href="../characters/swordsman/leon.html" class="role-card">
@@ -492,7 +553,7 @@
             </a>
         </div>
 
-        <!-- 剧情资讯+最新活动双栏板块 -->
+        <!-- 剧情 + 活动 -->
         <div class="two-box">
             <div class="box">
                 <h3 class="title">游戏剧情解读</h3>
@@ -507,7 +568,7 @@
             </div>
         </div>
 
-        <!-- 游戏核心特色亮点 -->
+        <!-- 核心特色 -->
         <div class="content-block">
             <h3 class="title">游戏核心特色</h3>
             <ul>
@@ -521,27 +582,25 @@
         </div>
     </div>
 
-    <!-- 回到顶部快捷按钮 -->
+    <!-- 回到顶部按钮 -->
     <button id="backTop">↑</button>
 
-    <!-- 网站底部版权信息 -->
+    <!-- 页脚 -->
     <footer>
         克鲁赛德战记主题网站 © 2026 毕业设计 
     </footer>
 
 <script>
-    // 获取轮播图图片集合与圆点容器
+    // 获取轮播图、指示器
     const imgs = document.querySelectorAll("#slider img");
     const dotsContainer = document.getElementById("dots");
-    let index = 0; // 记录当前展示图片下标
+    let index = 0;
 
-    // 动态创建轮播指示器圆点
+    // 自动生成轮播圆点
     imgs.forEach((_, i) => {
         const dot = document.createElement("div");
         dot.className = "dot";
-        // 默认第一个圆点选中
         if (i === 0) dot.classList.add("active");
-        // 点击圆点切换对应轮播图
         dot.onclick = () => {
             index = i;
             showSlide();
@@ -549,10 +608,9 @@
         dotsContainer.appendChild(dot);
     });
 
-    // 获取所有轮播圆点元素
     const dots = document.querySelectorAll(".dot");
 
-    // 轮播图切换显示函数
+    // 切换轮播图
     function showSlide() {
         imgs.forEach(img => img.classList.remove("active"));
         dots.forEach(dot => dot.classList.remove("active"));
@@ -560,7 +618,7 @@
         dots[index].classList.add("active");
     }
 
-    // 开启自动轮播
+    // 自动轮播
     function autoPlay() {
         index++;
         if (index >= imgs.length) index = 0;
@@ -568,20 +626,20 @@
     }
     setInterval(autoPlay, 3000);
 
-    // 点击轮播图跳转对应活动页面
+    // 点击轮播图跳转对应页面
     function jumpSlider() {
         if (index === 0) location.href = "../events/soul_duet.html";
         if (index === 1) location.href = "../stories/storie/siege.html";
         if (index === 2) location.href = "../stories/guardian.html";
     }
 
-    // 监听页面滚动，控制回到顶部按钮显隐
+    // 回到顶部按钮显示/隐藏
     const backTop = document.getElementById("backTop");
     window.addEventListener("scroll", function () {
         backTop.classList.toggle("show", window.scrollY > 300);
     });
 
-    // 点击按钮平滑返回顶部
+    // 点击返回顶部
     backTop.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
