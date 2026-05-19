@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>克鲁赛德战记 - 灵魂要塞</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0b0f1a;
+            background-image: radial-gradient(#162233 0%, #0b0f1a 70%);
+            color: #d0e1f2;
+            font-family: "微软雅黑", sans-serif;
+            line-height: 1.9;
+            min-height: 100vh;
+        }
+        /* 右侧半页灵魂要塞BOSS背景 */
+        .boss-bg {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100vh;
+            object-fit: contain;
+            opacity: 0.3;
+            transform: scaleX(-1);
+            z-index: 1;
+        }
+        /* 内容置顶不被遮挡 */
+        .main-nav, .tab-nav, .container {
+            position: relative;
+            z-index: 99;
+        }
+        /* 文字板块彻底透明 */
+        .story-content {
+            background: transparent !important;
+            border: none !important;
+            backdrop-filter: none !important;
+        }
+        .data-box {
+            background-color: rgba(22,34,51,0.3);
+            border: 1px solid #2c4a66;
+            padding: 18px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        /* 顶部主导航 */
+        .main-nav {
+            background-color: #121825;
+            border-bottom: 2px solid #4a7c99;
+            padding: 14px 0;
+        }
+        .main-nav__list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+        }
+        .main-nav__link {
+            color: #9ec3e6;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 6px 18px;
+            border-radius: 3px;
+            transition: 0.3s ease;
+        }
+        .main-nav__link:hover,
+        .main-nav__link--active {
+            background-color: #1a2a40;
+            color: #6dd5ff;
+        }
+        /* 剧情标签切换按钮 */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .story-tabs__button {
+            padding: 8px 20px;
+            border: 2px solid #4a7c99;
+            border-radius: 4px;
+            background-color: #121825;
+            color: #9ec3e6;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .story-tabs__button--active {
+            background-color: #4a7c99;
+            color: #0b0f1a;
+        }
+        .story-tabs__button:hover {
+            background-color: #1a2a40;
+            color: #6dd5ff;
+        }
+        /* 主体容器 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 25px 50px;
+        }
+        /* 页面大标题 */
+        .story-title {
+            font-size: 32px;
+            text-align: center;
+            color: #6dd5ff;
+            letter-spacing: 4px;
+            margin-bottom: 35px;
+            text-shadow: 0 0 12px rgba(109,213,255,0.35);
+            border-bottom: 1px solid #2c4a66;
+            padding-bottom: 15px;
+        }
+        /* 主题配图 */
+        .story-img {
+            width: 100%;
+            border: 4px solid #2c4a66;
+            border-radius: 6px;
+            box-shadow: 0 0 30px rgba(74,124,153,0.25);
+            margin-bottom: 40px;
+        }
+        /* 二级小标题 */
+        .sub-title {
+            font-size: 20px;
+            color: #6dd5ff;
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #4a7c99;
+        }
+        .story-content p {
+            margin-bottom: 18px;
+        }
+        .info-list {
+            padding-left: 22px;
+            margin: 10px 0;
+        }
+        .text-high {
+            color: #86e0ff;
+        }
+        .text-red {
+            color: #ff6b6b;
+        }
+        .text-blue {
+            color: #6dd5ff;
+        }
+    </style>
+</head>
+<body>
+<!-- 灵魂要塞BOSS背景图 -->
+<img class="boss-bg" src="../../images/soulfort_boss.png" alt="灵魂要塞BOSS">
+
+<nav class="main-nav">
+    <ul class="main-nav__list">
+        <li class="main-nav__item"><a href="../home/index.html" class="main-nav__link">主页</a></li>
+        <li class="main-nav__item"><a href="../characters/character.html" class="main-nav__link">角色</a></li>
+        <li class="main-nav__item"><a href="../assist/assist.html" class="main-nav__link">辅助</a></li>
+        <li class="main-nav__item"><a href="story.html" class="main-nav__link main-nav__link--active">剧情</a></li>
+        <li class="main-nav__item"><a href="../events/event.html" class="main-nav__link">活动</a></li>
+    </ul>
+</nav>
+
+<div class="tab-nav">
+    <button class="story-tabs__button" onclick="location.href='story.html'">主线剧情</button>
+    <button class="story-tabs__button" onclick="location.href='guardian.html'">讨伐遗迹的守护者</button>
+    <button class="story-tabs__button story-tabs__button--active">外传灵魂要塞</button>
+    <button class="story-tabs__button" onclick="location.href='redlotus.html'">外传红莲之力</button>
+</div>
+
+<div class="container">
+    <h1 class="story-title">外传：灵魂要塞 Soul Fortress</h1>
+    <img src="../../images/soulfort.png" alt="灵魂要塞" class="story-img">
+
+    <div class="story-content">
+        <p>灵魂要塞是《克鲁赛德战记》的核心外传玩法之一，也是游戏中后期极具挑战性的高难内容。它是一座由无数亡魂与黑暗能量构筑而成的浮空堡垒，由被卡尔拉德污染的远古灵魂守卫，是玩家获取顶级符文、强化角色实力的关键场所。</p>
+        <p>要塞内的关卡分为多层递进，每一层都有不同的机制与强敌把守，需要玩家组建多支不同体系的队伍轮番挑战，是对阵容深度与角色练度的终极考验。</p>
+
+        <h2 class="sub-title">一、要塞基础规则</h2>
+        <p>1.  要塞关卡分为多个楼层，每层包含多个挑战节点，挑战失败后队伍会进入冷却，无法再次出战；</p>
+        <p>2.  每层通关后可获得灵魂结晶、高级符文碎片等稀有奖励，高层通关还会解锁限定角色皮肤与称号；</p>
+        <p>3.  要塞内存在多种特殊机制，如：</p>
+        <ul class="info-list">
+            <li>「灵魂封印」：限制部分职业/属性角色入场</li>
+            <li>「黑暗侵蚀」：战斗中持续降低角色生命值上限</li>
+            <li>「回响之力」：BOSS技能会随回合数叠加伤害</li>
+        </ul>
+
+        <h2 class="sub-title">二、核心关卡机制</h2>
+        <div class="data-box">
+            <p><strong>◆ 守门人：亡灵骑士</strong></p>
+            <p>要塞入口的第一道防线，拥有高额物理抗性与持续再生能力，需要魔法输出角色搭配破甲符文快速斩杀。</p>
+        </div>
+        <div class="data-box">
+            <p><strong>◆ 中层BOSS：幽影女巫</strong></p>
+            <p>精通诅咒与控制魔法，会定期释放全屏沉默与灵魂剥离技能，队伍中必须配备净化类角色，否则极易被持续控制致死。</p>
+        </div>
+        <div class="data-box">
+            <p><strong>◆ 顶层BOSS：灵魂主宰</strong></p>
+            <p>要塞的最终守护者，拥有两种形态：第一形态免疫所有非暴击伤害，第二形态会召唤无数亡魂分身，只有击杀本体才能结束战斗。通关后可获得史诗级灵魂符文，大幅提升角色暴击伤害与穿透能力。</p>
+        </div>
+
+        <h2 class="sub-title">三、推荐阵容与攻略要点</h2>
+        <p>灵魂要塞的挑战核心在于「队伍轮换」与「机制应对」，推荐准备多支队伍：</p>
+        <ul class="info-list">
+            <li>魔法输出队：应对高物理抗性的亡灵骑士</li>
+            <li>净化续航队：应对幽影女巫的控制与诅咒</li>
+            <li>暴击爆发队：应对灵魂主宰的免伤机制</li>
+        </ul>
+        <p>同时，携带复活类女神技能能有效应对高层的即死机制，是通关要塞的必备选择。</p>
+
+        <h2 class="sub-title">四、玩法总结</h2>
+        <p>灵魂要塞是《克鲁赛德战记》中最具深度的挑战内容之一，它不仅考验玩家的角色练度，更考验对不同机制的理解与阵容搭配能力。成功通关的玩家，不仅能获得顶级养成材料，更能解锁游戏中最稀有的称号与外观，是证明自己实力的终极战场。</p>
+    </div>
+</div>
+
+<script>
+const pageTitle = document.title;
+const pageUrl = window.location.href;
+const time = new Date().toLocaleString();
+const record = {title:pageTitle,url:pageUrl,time:time};
+let historyList = JSON.parse(localStorage.getItem("historyList")) || [];
+historyList = historyList.filter(item => item.url !== pageUrl);
+historyList.unshift(record);
+if(historyList.length > 10) historyList = historyList.slice(0,10);
+localStorage.setItem("historyList",JSON.stringify(historyList));
+</script>
+</body>
+</html>

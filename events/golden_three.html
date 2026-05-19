@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黄金三镖客 - 活动详情</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: "Microsoft YaHei", sans-serif; 
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            background: #f0e8d8; 
+        }
+
+        nav { 
+            background: #1a1a1a; 
+            position: sticky; 
+            top: 0; 
+            z-index: 999; 
+        }
+
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            max-width: 1100px; 
+            margin: auto; 
+        }
+
+        nav li { 
+            flex: 1; 
+            text-align: center;
+        }
+
+        nav a { 
+            display: block; 
+            color: #fff; 
+            text-decoration: none; 
+            padding: 15px 0; 
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active { 
+            background: #d4af37; 
+            color: #000; 
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 22px;
+            background: #d4af37;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-3px);
+        }
+
+        .act-banner {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 2px solid #d4af37;
+        }
+
+        .act-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .act-content {
+            background: #fff8e8;
+            border: 2px solid #d4af37;
+            border-radius: 12px;
+            padding: 35px;
+        }
+
+        .act-content h2 {
+            color: #8a6d3b;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .act-content h3 {
+            color: #8a6d3b;
+            font-size: 20px;
+            margin: 25px 0 12px;
+            border-left: 4px solid #d4af37;
+            padding-left: 12px;
+        }
+
+        .act-content p {
+            color: #555;
+            font-size: 16px;
+            line-height: 2;
+            margin-bottom: 15px;
+        }
+
+        .act-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: #fff;
+        }
+
+        .act-content table th,
+        .act-content table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .act-content table th {
+            background: #d4af37;
+            color: #000;
+        }
+
+        #backTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: #d4af37;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 99;
+            border: none;
+        }
+
+        #backTop.show {
+            opacity: 1;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul { flex-wrap: wrap; }
+            nav li { flex: 0 0 50%; }
+            .act-content { padding: 20px; }
+            .act-content h2 { font-size: 24px; }
+            .act-content table th, .act-content table td {
+                padding: 6px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav li { flex: 0 0 100%; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../home/index.html">主页</a></li>
+            <li><a href="../characters/character.html">角色</a></li>
+            <li><a href="../assist/assist.html">装备辅助</a></li>
+            <li><a href="../story/story.html">剧情</a></li>
+            <li><a class="active" href="event.html">活动</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <a href="event.html" class="back-btn">← 返回活动列表</a>
+
+        <div class="act-banner">
+            <!-- 已改为你项目里正确的图片名 golden_three.png -->
+            <img src="../../images/golden_three.png" alt="黄金三镖客活动">
+        </div>
+
+        <div class="act-content">
+            <h2>黄金三镖客 — 活动详情</h2>
+
+            <h3>一、活动简介</h3>
+            <p>黄金三镖客是基于克鲁赛德战记经典消块战斗系统打造的趣味小游戏活动。玩家通过消耗体力通关趣味消块小游戏、完成日常任务与悬赏挑战，可大量获取金币、反物质、六星饰品宝箱等高价值养成资源，是低成本、高收益的福利型常驻小游戏活动。</p>
+
+            <h3>二、基础关卡规则</h3>
+            <p>活动总共包含<strong>10个基础挑战关卡</strong>，每关入场消耗<strong>50点肉</strong>。该活动拥有贴心保底机制，挑战通关失败<strong>不会扣除体力</strong>，仅通关成功后消耗对应入场体力。</p>
+            <p>每成功通关单个关卡，可直接获得<strong>250000金币</strong>。玩家通关全部10个关卡后，将解锁后续核心玩法：日常任务与每日悬赏通缉，开启长期稳定的资源获取渠道。</p>
+
+            <h3>三、核心方块机制</h3>
+            <p>该活动摒弃传统战斗模式，采用专属消块玩法，对局内仅刷新两种专属方块，机制简单但容错率极低：</p>
+            <table>
+                <tr>
+                    <th>方块名称</th>
+                    <th>方块作用机制</th>
+                </tr>
+                <tr>
+                    <td>雷管方块</td>
+                    <td>对局任意时间点击该方块，会直接触发米莱狄枪械爆炸，判定通关失败，直接结束本局挑战。</td>
+                </tr>
+                <tr>
+                    <td>枪方块</td>
+                    <td>点击后触发米莱狄开枪攻击，对前方最近的一名敌人造成伤害，是本局唯一的输出手段，依靠精准点击通关关卡。</td>
+                </tr>
+            </table>
+
+            <h3>四、日常任务系统</h3>
+            <p>通关全部10个基础关卡后解锁日常任务功能，每日早上8点统一刷新任务次数与奖励进度。</p>
+            <p>每日随机刷新<strong>4个日常任务</strong>，每完成1个任务即可获得<strong>5个六星饰品箱子</strong>。当天完成全部4个日常任务后，自动解锁当日的每日悬赏通缉奖励资格。</p>
+
+            <h3>五、每日悬赏通缉</h3>
+            <p>解锁条件：通关全部10关 + 完成当日全部4个日常任务。</p>
+            <p>每日悬赏需要消耗<strong>100肉</strong>入场，关卡随机复用10个基础关卡中的任意一关，并且跳过全部前置对话，直接开启战斗，节省挑战时间。成功通关后可获得<strong>500000金币</strong>高额奖励，每日8点刷新挑战次数。</p>
+
+            <h3>六、特殊隐藏机制</h3>
+            <p>活动存在场景视觉机制：<strong>当对战背景切换为夜晚时，场上所有方块会进入隐形状态</strong>，极大提升辨别难度与通关难度，考验玩家记忆力与操作熟练度。</p>
+
+            <h3>七、活动总结</h3>
+            <p>黄金三镖客属于高性价比福利小游戏活动，操作简单、奖励丰厚，无高额养成门槛。玩家只需通关一次全部基础关卡，即可永久解锁每日稳定的金币、饰品资源收益，是平民玩家积攒养成资源的核心途径之一，夜晚隐形方块机制也为简单的小游戏增添了趣味性与挑战性。</p>
+        </div>
+    </div>
+
+    <button id="backTop">↑</button>
+    <footer>克鲁赛德战记 © 2026 毕业设计</footer>
+
+    <script>
+        const backTop = document.getElementById("backTop");
+        window.addEventListener("scroll", function () {
+            backTop.classList.toggle("show", window.scrollY > 300);
+        });
+        backTop.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+</body>
+</html>

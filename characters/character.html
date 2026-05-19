@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>角色图鉴 - 克鲁赛德战记</title>
+    <style>
+        /* ====================================== */
+        /* 1全局样式重置 */
+        /* ====================================== */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: "Microsoft YaHei", sans-serif; 
+        }
+
+        html {
+            scroll-behavior: smooth; /* 页面平滑滚动 */
+        }
+
+        body { 
+            background: #f0e8d8; 
+        }
+
+        /* ====================================== */
+        /*  导航栏样式 */
+        /* ====================================== */
+        nav { 
+            background: #1a1a1a; 
+            position: sticky; 
+            top: 0; 
+            z-index: 999; 
+        }
+
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            max-width: 1100px; 
+            margin: auto; 
+        }
+
+        nav li { 
+            flex: 1; 
+            text-align: center; 
+        }
+
+        nav a { 
+            display: block; 
+            color: #fff; 
+            text-decoration: none; 
+            padding: 15px 0; 
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active { 
+            background: #d4af37; 
+            color: #000;
+        }
+
+        /* ====================================== */
+        /* 页面容器与标题 */
+        /* ====================================== */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 32px;
+            color: #8a6d3b;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        /* ====================================== */
+        /*  搜索框样式 */
+        /* ====================================== */
+        .search-box {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        #searchInput {
+            width: 60%;
+            padding: 10px 18px;
+            border: 2px solid #d4af37;
+            border-radius: 30px;
+            outline: none;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        /* ====================================== */
+        /* 职业筛选按钮 */
+        /* ====================================== */
+        .filter-box {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            margin: 0 6px;
+            background: #997a44;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: #d4af37;
+            color: #000;
+        }
+
+        .filter-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* ====================================== */
+        /* 角色卡片网格 */
+        /* ====================================== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff8e8;
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s ease;
+            display: none;
+        }
+
+        .card.show {
+            display: block;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-weight: bold;
+            color: #8a6d3b;
+            font-size: 16px;
+        }
+
+        /* ====================================== */
+        /*  回到顶部按钮  */
+        /* ====================================== */
+        #backTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: #d4af37;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 99;
+            border: none;
+        }
+
+        #backTop.show {
+            opacity: 1;
+        }
+
+        /* ====================================== */
+        /*  页脚 */
+        /* ====================================== */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        /* ====================================== */
+        /*  响应式适配 (移动端) */
+        /* ====================================== */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+            }
+            nav li {
+                flex: 0 0 50%;
+            }
+            .title {
+                font-size: 24px;
+            }
+            #searchInput {
+                width: 90%;
+            }
+            .filter-btn {
+                padding: 8px 12px;
+                margin: 4px;
+                font-size: 14px;
+            }
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 15px;
+            }
+            .card img {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav li {
+                flex: 0 0 100%;
+            }
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            }
+            .card img {
+                height: 150px;
+            }
+        }
+
+        /* ====================================== */
+        /*  图片懒加载淡入动画 */
+        /* ====================================== */
+        .fade {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="../home/index.html">主页</a></li>
+            <li><a class="active" href="character.html">角色</a></li>
+            <li><a href="../assist/assist.html">辅助</a></li>
+            <li><a href="../stories/story.html">剧情</a></li>
+            <li><a href="../events/event.html">活动</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="title">角色图鉴</h1>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 输入角色名字搜索...">
+        </div>
+
+        <div class="filter-box">
+            <button class="filter-btn active" data-job="all">全部</button>
+            <button class="filter-btn" data-job="剑士">剑士</button>
+            <button class="filter-btn" data-job="法师">法师</button>
+            <button class="filter-btn" data-job="猎人">猎人</button>
+            <button class="filter-btn" data-job="弓箭手">弓箭手</button>
+            <button class="filter-btn" data-job="祭司">祭司</button>
+            <button class="filter-btn" data-job="骑士">骑士</button>
+        </div>
+
+        <div class="grid" id="roleGrid"></div>
+    </div>
+
+    <button id="backTop">↑</button>
+    <footer>克鲁赛德战记 © 2026 毕业设计</footer>
+
+    <script>
+        // 图片名 + 跳转页面 
+        const roleList = [
+            { job: "剑士", name: "泉奈", img: "../../images/izuna.webp", page: "swordsman/izuna.html" },
+            { job: "剑士", name: "罗什福尔", img: "../../images/rochefort.webp", page: "swordsman/rochefort.html" },
+            { job: "剑士", name: "莱昂内尔", img: "../../images/leonard.webp", page: "swordsman/leonard.html" },
+            { job: "剑士", name: "贞德", img: "../../images/jeanne.webp", page: "swordsman/jeanne.html" },
+            { job: "剑士", name: "里昂", img: "../../images/leon.webp", page: "swordsman/leon.html" },
+            { job: "剑士", name: "须佐能乎", img: "../../images/susanoo.webp", page: "swordsman/susanoo.html" },
+            { job: "剑士", name: "魔女莎莎", img: "../../images/sasha.webp", page: "swordsman/sasha.html" },
+            { job: "弓箭手", name: "红莲之弓矢德姆娜", img: "../../images/demna.webp", page: "archer/demna.html" },
+            { job: "法师", name: "雅甘", img: "../../images/ygg.webp", page: "mage/ygg.html" },
+            { job: "祭司", name: "喵", img: "../../images/meow.webp", page: "priest/meow.html" },
+            { job: "祭司", name: "玛丽亚", img: "../../images/maria.webp", page: "priest/maria.html" },
+            { job: "猎人", name: "九妹", img: "../../images/nine.webp", page: "hunter/nine.html" },
+            { job: "猎人", name: "斯派罗", img: "../../images/spyro.webp", page: "hunter/spyro.html" },
+            { job: "猎人", name: "达达尼昂", img: "../../images/dartanyan.webp", page: "hunter/dartanyan.html" },
+            { job: "骑士", name: "亚历山大", img: "../../images/alex.webp", page: "knight/alex.html" },
+            { job: "骑士", name: "威", img: "../../images/wei.webp", page: "knight/wei.html" },
+            { job: "骑士", name: "扭蛋游击队·鲁格斯", img: "../../images/ruggs.webp", page: "knight/ruggs.html" },
+            { job: "骑士", name: "雷神托尔", img: "../../images/thor.webp", page: "knight/thor.html" },
+        ];
+
+
+        const grid = document.getElementById("roleGrid");
+        roleList.forEach(role => {
+            const card = document.createElement("div");
+            card.className = "card show";
+            card.setAttribute("data-job", role.job);
+            card.setAttribute("data-name", role.name);
+            card.innerHTML = `<img data-src="${role.img}" alt="${role.name}" class="lazy"><p>${role.name}</p>`;
+            card.addEventListener("click", () => { window.location.href = role.page; });
+            grid.appendChild(card);
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const lazyImages = document.querySelectorAll("img.lazy");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add("fade");
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            lazyImages.forEach(img => observer.observe(img));
+        });
+
+        const buttons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const job = btn.getAttribute('data-job');
+                cards.forEach(card => {
+                    if (job === 'all' || card.dataset.job === job) card.classList.add('show');
+                    else card.classList.remove('show');
+                });
+            });
+        });
+
+        const searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("input", function () {
+            const key = this.value.trim().toLowerCase();
+            cards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                const isMatch = name.includes(key);
+                const isShowJob = card.classList.contains("show");
+                
+                if (isMatch && isShowJob) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+
+        const backTop = document.getElementById("backTop");
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                backTop.classList.add("show");
+            } else {
+                backTop.classList.remove("show");
+            }
+        });
+
+        backTop.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+</body>
+</html>

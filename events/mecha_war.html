@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>荷赛拉大战-机械淘淘 - 活动详情</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: "Microsoft YaHei", sans-serif; 
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            background: #f0e8d8; 
+        }
+
+        nav { 
+            background: #1a1a1a; 
+            position: sticky; 
+            top: 0; 
+            z-index: 999; 
+        }
+
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            max-width: 1100px; 
+            margin: auto; 
+        }
+
+        nav li { 
+            flex: 1; 
+            text-align: center;
+        }
+
+        nav a { 
+            display: block; 
+            color: #fff; 
+            text-decoration: none; 
+            padding: 15px 0; 
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active { 
+            background: #d4af37; 
+            color: #000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 22px;
+            background: #d4af37;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-3px);
+        }
+
+        .act-banner {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 2px solid #d4af37;
+        }
+
+        .act-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .act-content {
+            background: #fff8e8;
+            border: 2px solid #d4af37;
+            border-radius: 12px;
+            padding: 35px;
+        }
+
+        .act-content h2 {
+            color: #8a6d3b;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .act-content h3 {
+            color: #8a6d3b;
+            font-size: 20px;
+            margin: 25px 0 12px;
+            border-left: 4px solid #d4af37;
+            padding-left: 12px;
+        }
+
+        .act-content p {
+            color: #555;
+            font-size: 16px;
+            line-height: 2;
+            margin-bottom: 15px;
+        }
+
+        .act-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: #fff;
+        }
+
+        .act-content table th,
+        .act-content table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .act-content table th {
+            background: #d4af37;
+            color: #000;
+        }
+
+        #backTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: #d4af37;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 99;
+            border: none;
+        }
+
+        #backTop.show {
+            opacity: 1;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul { flex-wrap: wrap; }
+            nav li { flex: 0 0 50%; }
+            .act-content { padding: 20px; }
+            .act-content h2 { font-size: 24px; }
+            .act-content table th, .act-content table td {
+                padding: 6px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav li { flex: 0 0 100%; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../home/index.html">主页</a></li>
+            <li><a href="../characters/character.html">角色</a></li>
+            <li><a href="../assist/assist.html">装备辅助</a></li>
+            <li><a href="../story/story.html">剧情</a></li>
+            <li><a class="active" href="event.html">活动</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <a href="event.html" class="back-btn">← 返回活动列表</a>
+
+        <div class="act-banner">
+            <img src="../../images/mecha_war.png" alt="荷赛拉大战-机械淘淘">
+        </div>
+
+        <div class="act-content">
+            <h2>荷赛拉大战-机械淘淘 — 活动详情</h2>
+
+            <h3>一、活动简介</h3>
+            <p>荷赛拉大战-机械淘淘是荷赛拉大战系列的第二期BOSS排名挑战活动，玩法机制融合了铁匠打伤害副本与灵魂要塞阶段闯关模式，整体上手简单、兼具排名竞争与阶段通关奖励，是全民参与的服务器集体攻坚玩法。玩家需要和全服玩家共同在活动周期内击退BOSS机械淘淘，通过打伤害、通关阶段来获取大量资源与限定家具奖励。</p>
+
+            <h3>二、进场规则</h3>
+            <p><strong>入场消耗：</strong>每次进场挑战消耗 <strong>1个魔界肉</strong>。</p>
+            <p><strong>体力补给：</strong>活动期间系统每日自动赠送 <strong>10个魔界肉</strong>，当日耗尽后需等待次日重置恢复，无钻石补购渠道。</p>
+
+            <h3>三、活动奖励体系</h3>
+            <p><strong>1. 普通参与奖励（魔界硬币）</strong><br>
+            无论战斗超时、失败或中途退出，战斗结束均可结算获得魔界硬币。战斗时长越久，结算硬币数量越多，单局最高可获取4个魔界硬币。魔界硬币可在活动商店兑换各类书籍、水晶碎片等养成素材。</p>
+
+            <p><strong>2. 个人排名奖励</strong><br>
+            系统根据玩家活动周期内<strong>累计总伤害</strong>进行全服排名，按照排名分段发放对应梯度奖励。</p>
+
+            <p><strong>3. 阶段清除追加奖励</strong><br>
+            活动BOSS分为多个阶段，每成功击破一个阶段，即可解锁对应阶段清除奖励。</p>
+
+            <p><strong>4. 限定家具通用奖励</strong><br>
+            本次排名奖励与阶段清除奖励均可获取限定道具<strong>勇士之家物品选择券</strong>。使用后可自选四款机械主题家具：3-机器人、迷你动力源、迷你钳子臂、机械淘淘面包机。</p>
+
+            <h3>四、BOSS全层数属性面板</h3>
+            <table>
+                <tr>
+                    <th>层数</th>
+                    <th>物抗</th>
+                    <th>魔抗</th>
+                    <th>命中</th>
+                    <th>回避</th>
+                    <th>减伤</th>
+                    <th>单Hit伤害上限</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>6000</td>
+                    <td>6000</td>
+                    <td>30</td>
+                    <td>0</td>
+                    <td>50%</td>
+                    <td>18万</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>4000</td>
+                    <td>10000</td>
+                    <td>30</td>
+                    <td>0</td>
+                    <td>40%</td>
+                    <td>30万</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>6500</td>
+                    <td>12000</td>
+                    <td>200</td>
+                    <td>0</td>
+                    <td>50%</td>
+                    <td>30万</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5000</td>
+                    <td>12000</td>
+                    <td>200</td>
+                    <td>0</td>
+                    <td>30%</td>
+                    <td>60万</td>
+                </tr>
+            </table>
+
+            <h3>五、层数专属机制与攻略要点</h3>
+            <p><strong>1. 光盾机制（2层、4层专属）</strong><br>
+            2层与4层战斗场景存在BOSS光盾领域，角色处于光盾圈外攻击BOSS，伤害会被削减<strong>90%</strong>，几乎无法打出有效输出。<br>
+            职业限制：剑锤以外的所有职业，无特殊辅助加持的情况下<strong>无法自行进入光盾领域</strong>，需要搭配专属位移、进场辅助角色。</p>
+
+            <p><strong>2. 秒杀QTE机制（3层、4层专属）</strong><br>
+            3层、4层拥有致命秒杀QTE，容错规则为<strong>宁可晚开、绝对不能早开</strong>，提前开启女神会直接判定阵亡。</p>
+
+            <p>3层QTE时机：</strong>提示分别出现在倒计时33秒、18秒、3秒，建议提示出现后延迟1秒再开启女神，稳吃机制。</p>
+            <p><strong>4层QTE时机：</strong>提示分别出现在倒计时35秒、20秒，等待提示完全出现后再开启女神即可安全规避秒杀。</p>
+
+            <h3>六、玩法总结</h3>
+            <p>机械淘淘属于低门槛、全员可参与的服务器攻坚排名活动，核心难点集中在高层数的光盾限制与精准QTE时机把控。普通玩家只需每日打满魔界肉即可稳定兑换养成素材，追求排名与限定家具的玩家则需要适配进场职业、卡准QTE节奏、吃透每层伤害上限机制，最大化累计伤害冲榜。</p>
+        </div>
+    </div>
+
+    <button id="backTop">↑</button>
+    <footer>克鲁赛德战记 © 2026 毕业设计</footer>
+
+    <script>
+        const backTop = document.getElementById("backTop");
+        window.addEventListener("scroll", function () {
+            backTop.classList.toggle("show", window.scrollY > 300);
+        });
+        backTop.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+</body>
+</html>

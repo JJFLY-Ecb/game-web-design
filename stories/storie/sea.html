@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>克鲁赛德战记 - 大海的呼唤</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+</head>
+<body>
+<nav class="main-nav">
+    <ul class="main-nav__list">
+        <li class="main-nav__item"><a href="../../home/index.html" class="main-nav__link">主页</a></li>
+        <li class="main-nav__item"><a href="../../characters/character.html" class="main-nav__link">角色</a></li>
+        <li class="main-nav__item"><a href="../../assist/assist.html" class="main-nav__link">辅助</a></li>
+        <li class="main-nav__item"><a href="../story.html" class="main-nav__link main-nav__link--active">剧情</a></li>
+        <li class="main-nav__item"><a href="../../events/event.html" class="main-nav__link">活动</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <a href="../story.html" class="back-btn">← 返回</a>
+    <h1 class="story-title">大海的呼唤</h1>
+    <img src="../../../images/sea.png" alt="大海的呼唤" class="story-img">
+    <div class="story-content">
+        <p>近期整片大陆出现大范围地质异动，大地之下的灵脉之力持续衰弱，稳固一方水土的地脉能量不断流失长此以往，整片大陆都将面临崩塌分裂的巨大危机。</p>
+
+        <br>
+
+        <p>经过多方打探与实地探查，众人得知沉睡深海之中的河伯力量日渐衰弱，无法再继续稳固地脉根基，这也是地脉不断虚弱的核心原因。唯有唤醒河伯，才能重新稳住濒临破碎的大地灵脉。</p>
+
+        <br>
+
+        <p>熟知四海风物的海娘主动挺身而出，自愿带领众人一同前往东方辽阔汉国，前往神山之巅拜见执掌山川大地的山神，寻求唤醒河伯、修复地脉的古老方法，聆听来自深海与大地最真切的呼唤。</p>
+    </div>
+</div>
+
+<script>
+const pageTitle = document.title;
+const pageUrl = window.location.href;
+const time = new Date().toLocaleString();
+const record = {title:pageTitle,url:pageUrl,time:time};
+let historyList = JSON.parse(localStorage.getItem("storyHistory")) || [];
+historyList = historyList.filter(item => item.url !== pageUrl);
+historyList.unshift(record);
+if(historyList.length > 10) historyList = historyList.slice(0,10);
+localStorage.setItem("storyHistory",JSON.stringify(historyList));
+</script>
+</body>
+</html>
