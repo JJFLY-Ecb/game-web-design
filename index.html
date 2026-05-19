@@ -368,8 +368,8 @@
     <div class="container">
         <!-- 首页轮播图区域 -->
         <div class="slider" id="slider" onclick="jumpSlider()">
-            <img src="../../images/siege.png" class="active" alt="骑士团讨伐">
-            <img src="../../images/soul_duet.png"  alt="灵魂二重奏">
+           <img src="../../images/soul_duet.png" class="active" alt="灵魂二重奏">
+            <img src="../../images/siege.png"  alt="骑士团讨伐">           
             <img src="../../images/guardian.png" alt="守护者">
             <div class="dots" id="dots"></div>
         </div>
@@ -571,8 +571,8 @@
     // 点击轮播图跳转对应活动页面
     function jumpSlider() {
         if (index === 0) location.href = "../events/soul_duet.html";
-        if (index === 1) location.href = "../events/guardian.html";
-        if (index === 2) location.href = "../events/siege.html";
+        if (index === 1) location.href = "../stories/storie/siege.html";
+        if (index === 2) location.href = "../stories/guardian.html";
     }
 
     // 监听页面滚动，控制回到顶部按钮显隐
