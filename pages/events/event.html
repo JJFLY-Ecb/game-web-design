@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最新活动 - 克鲁赛德战记</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: "Microsoft YaHei", sans-serif; 
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            background: #f0e8d8; 
+        }
+
+        /* 导航栏 */
+        nav { 
+            background: #1a1a1a; 
+            position: sticky; 
+            top: 0; 
+            z-index: 999; 
+        }
+
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            max-width: 1100px; 
+            margin: auto; 
+        }
+
+        nav li { 
+            flex: 1; 
+            text-align: center;
+        }
+
+        nav a { 
+            display: block; 
+            color: #fff; 
+            text-decoration: none; 
+            padding: 15px 0; 
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active { 
+            background: #d4af37; 
+            color: #000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 32px;
+            color: #8a6d3b;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        /* ===================== 轮播图样式 ===================== */
+        .swiper-box {
+            width: 100%;
+            height: 420px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .swiper-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .swiper-item {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .swiper-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* 轮播点 */
+        .swiper-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #d4af37;
+        }
+
+        /* ===================== 活动列表卡片 ===================== */
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .event-card {
+            background: #fff8e8;
+            border: 2px solid #d4af37;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(138,109,59,0.15);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .event-info {
+            padding: 18px;
+        }
+
+        .event-info h3 {
+            color: #8a6d3b;
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .event-info p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 回到顶部 */
+        #backTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: #d4af37;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 99;
+            border: none;
+        }
+
+        #backTop.show {
+            opacity: 1;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .swiper-box { height: 260px; }
+            nav ul { flex-wrap: wrap; }
+            nav li { flex: 0 0 50%; }
+        }
+
+        @media (max-width: 480px) {
+            nav li { flex: 0 0 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="../home/index.html">主页</a></li>
+        <li><a href="../characters/character.html">角色</a></li>
+        <li><a href="../assist/assist.html">辅助</a></li>
+        <li><a href="../stories/story.html">剧情</a></li>
+        <li><a class="active" href="event.html">活动</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h1 class="title">最新活动</h1>
+
+    <!-- 轮播图  -->
+    <div class="swiper-box" id="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-item" onclick="location.href='soul_duet.html'">
+                <img src="../../images/soul_duet.png" alt="灵魂二重奏">
+            </div>
+            <div class="swiper-item" onclick="location.href='pumpkin_war.html'">
+                <img src="../../images/pumpkin_war.png" alt="南瓜战">
+            </div>
+            <div class="swiper-item" onclick="location.href='pugs_unstoppable.html'">
+                <img src="../../images/pugs_unstoppable.png" alt="无法阻止的普格斯">
+            </div>
+            <div class="swiper-item" onclick="location.href='mecha_war.html'">
+                <img src="../../images/mecha_war.png" alt="机械淘淘">
+            </div>
+            <div class="swiper-item" onclick="location.href='knight_battle.html'">
+                <img src="../../images/knight_battle.png" alt="骑士团大对抗">
+            </div>
+            <div class="swiper-item" onclick="location.href='golden_three.html'">
+                <img src="../../images/golden_three.png" alt="黄金三镖客">
+            </div>
+        </div>
+        <div class="swiper-dots"></div>
+    </div>
+
+    <!-- 活动卡片：图片名 + 跳转链接  -->
+    <div class="event-grid">
+        <a href="pumpkin_war.html" class="event-card">
+            <img src="../../images/pumpkin_war.png" alt="南瓜战">
+            <div class="event-info">
+                <h3>南瓜战</h3>
+                <p>万圣节限定副本，兑换限定皮肤与稀有道具</p>
+            </div>
+        </a>
+
+        <a href="pugs_unstoppable.html" class="event-card">
+            <img src="../../images/pugs_unstoppable.png" alt="无法阻止的普格斯">
+            <div class="event-info">
+                <h3>无法阻止的普格斯</h3>
+                <p>挑战入侵军团，获取大量强化材料与角色碎片</p>
+            </div>
+        </a>
+
+        <a href="mecha_war.html" class="event-card">
+            <img src="../../images/mecha_war.png" alt="机械淘淘">
+            <div class="event-info">
+                <h3>荷赛拉大战-机械淘淘</h3>
+                <p>挑战机械军团，解锁限定主题外观</p>
+            </div>
+        </a>
+
+        <a href="knight_battle.html" class="event-card">
+            <img src="../../images/knight_battle.png" alt="骑士团大对抗">
+            <div class="event-info">
+                <h3>骑士团大对抗</h3>
+                <p>跨服竞技，赢取专属称号与顶级装备</p>
+            </div>
+        </a>
+
+        <a href="golden_three.html" class="event-card">
+            <img src="../../images/golden_three.png" alt="黄金三镖客">
+            <div class="event-info">
+                <h3>黄金三镖客</h3>
+                <p>挑战赏金副本，获取金币与绝版饰品</p>
+            </div>
+        </a>
+
+        <a href="soul_duet.html" class="event-card">
+            <img src="../../images/soul_duet.png" alt="灵魂二重奏">
+            <div class="event-info">
+                <h3>灵魂二重奏</h3>
+                <p>全新灵魂副本开启，挑战强力BOSS，获取稀有灵魂装备</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<button id="backTop">↑</button>
+<footer>克鲁赛德战记 © 2026 毕业设计</footer>
+
+<script>
+    // 轮播自动播放
+    const swiper = document.getElementById('swiper');
+    const wrapper = swiper.querySelector('.swiper-wrapper');
+    const items = swiper.querySelectorAll('.swiper-item');
+    const dotsBox = swiper.querySelector('.swiper-dots');
+    
+    let index = 0;
+    const len = items.length;
+
+    // 生成轮播点
+    for(let i=0; i<len; i++){
+        const d = document.createElement('div');
+        d.className = 'dot';
+        if(i===0) d.classList.add('active');
+        d.onclick = () => { index = i; update(); }
+        dotsBox.appendChild(d);
+    }
+    const dots = dotsBox.querySelectorAll('.dot');
+
+    function update(){
+        wrapper.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((d,i) => d.classList.toggle('active', i===index));
+    }
+
+    // 自动轮播
+    setInterval(() => {
+        index = (index + 1) % len;
+        update();
+    }, 3500);
+
+    // 回到顶部
+    const backTop = document.getElementById("backTop");
+    window.addEventListener("scroll", () => {
+        backTop.classList.toggle("show", window.scrollY > 300);
+    });
+    backTop.onclick = () => window.scrollTo({top:0, behavior:"smooth"});
+</script>
+</body>
+</html>

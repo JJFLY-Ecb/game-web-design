@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>骑士团大对抗 - 活动详情</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: "Microsoft YaHei", sans-serif; 
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            background: #f0e8d8; 
+        }
+
+        nav { 
+            background: #1a1a1a; 
+            position: sticky; 
+            top: 0; 
+            z-index: 999; 
+        }
+
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            max-width: 1100px; 
+            margin: auto; 
+        }
+
+        nav li { 
+            flex: 1; 
+            text-align: center;
+        }
+
+        nav a { 
+            display: block; 
+            color: #fff; 
+            text-decoration: none; 
+            padding: 15px 0; 
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active { 
+            background: #d4af37; 
+            color: #000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 22px;
+            background: #d4af37;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-3px);
+        }
+
+        .act-banner {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 2px solid #d4af37;
+        }
+
+        .act-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .act-content {
+            background: #fff8e8;
+            border: 2px solid #d4af37;
+            border-radius: 12px;
+            padding: 35px;
+        }
+
+        .act-content h2 {
+            color: #8a6d3b;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .act-content h3 {
+            color: #8a6d3b;
+            font-size: 20px;
+            margin: 25px 0 12px;
+            border-left: 4px solid #d4af37;
+            padding-left: 12px;
+        }
+
+        .act-content p {
+            color: #555;
+            font-size: 16px;
+            line-height: 2;
+            margin-bottom: 15px;
+        }
+
+        .act-content ul {
+            padding-left: 20px;
+            line-height: 2;
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        #backTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: #d4af37;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 99;
+            border: none;
+        }
+
+        #backTop.show {
+            opacity: 1;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul { flex-wrap: wrap; }
+            nav li { flex: 0 0 50%; }
+            .act-content { padding: 20px; }
+            .act-content h2 { font-size: 24px; }
+        }
+
+        @media (max-width: 480px) {
+            nav li { flex: 0 0 100%; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../home/index.html">主页</a></li>
+            <li><a href="../characters/character.html">角色</a></li>
+            <li><a href="../assist/assist.html">装备辅助</a></li>
+            <li><a href="../story/story.html">剧情</a></li>
+            <li><a class="active" href="event.html">活动</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <a href="event.html" class="back-btn">← 返回活动列表</a>
+
+        <div class="act-banner">
+            <img src="../../images/knight_battle.png" alt="骑士团大对抗活动">
+        </div>
+
+        <div class="act-content">
+            <h2>骑士团大对抗 — 活动详情</h2>
+
+            <h3>一、活动概述</h3>
+            <p>骑士团大对抗是《克鲁赛德战记》中用于选拔格兰西亚最强骑士团的大型阵营对抗赛事。活动开启后，系统会将所有参与玩家随机分配至三大阵营，分别为<strong>钢铁骑士团、狮子骑士团、中央骑士团</strong>。玩家将以骑士团成员的身份捐献资源、争夺兵力、参与阵营博弈，最终以全阵营累计兵力数值判定胜负，是极具社交博弈与团队对抗乐趣的特色活动。</p>
+
+            <h3>二、胜利规则</h3>
+            <p>活动初始，三大骑士团统一拥有<strong>100万基础兵力</strong>。活动结束时，系统统计各阵营<strong>累计总兵力</strong>（并非最后回合瞬时兵力），累计兵力数值最高的骑士团获得本次大赛最终胜利。</p>
+
+            <h3>三、核心道具：骑士的信物获取方式</h3>
+            <p>骑士的信物是本次活动的唯一核心道具，等同于阵营兵力数值，玩家可通过消耗日常资源兑换获取，兑换比例固定：</p>
+            <ul>
+                <li>10点肉 = 1个骑士的信物</li>
+                <li>1个钥匙 = 1个骑士的信物</li>
+                <li>1张竞技场入场券 = 5个骑士的信物</li>
+            </ul>
+
+            <h3>四、骑士的信物使用方式</h3>
+            <p>玩家获取信物后拥有三种使用途径，可自由选择玩法策略，改变阵营战局走向：</p>
+            <p><strong>1. 捐献己方骑士团</strong><br>将信物提交至所属阵营，直接增加己方阵营累计兵力，提升团队排名优势。</p>
+            <p><strong>2. 攻击敌方骑士团</strong><br>将信物提交至其他两大阵营，可削减对应阵营的累计兵力。该机制形成了经典的“三足制衡”玩法，排名领先的阵营通常会被另外两个阵营联合打压，战局变数极大。</p>
+            <p><strong>3. 向国王进贡</strong><br>活动每四个回合开启一次国王进贡机制，系统随机刷新进贡需求数量，需求数值为：25000、30000、37500、45000、50000。三大骑士团需要合力捐献信物满足需求。<br>若成功满足进贡需求，无任何惩罚；若需求未达标，<strong>进贡数量最少的两个阵营，将分别承受20%、10%的兵力扣除惩罚</strong>，是左右战局的核心机制。</p>
+            <p>玩家可在活动面板实时查看各阵营累计兵力、追加回合、承受伤害数据，但无法查看己方与其他阵营的国王进贡信物数量，增加了博弈难度。</p>
+
+            <h3>五、阵营外观机制</h3>
+            <p>三大骑士团会根据实时兵力排名，自动切换对应的阵营建筑外观样式，排名第一、第二、第三名对应不同建筑模型，直观展示各阵营战力排名。</p>
+
+            <h3>六、完整活动奖励体系</h3>
+            <p><strong>1. 回合奖励</strong><br>每回合累计兵力排名第一的骑士团，可领取专属回合胜利奖励；连续三回合拿下第一名的阵营，可额外获取连胜奖励。<br><strong>领取前提：玩家活动期间至少捐献1个骑士的信物即可全程领取所有回合奖励，无需每回合重复捐献。</strong></p>
+
+            <p><strong>2. 最终回合胜利奖励</strong><br>活动最后回合排名第一的骑士团全员，可领取豪华终极奖励：隐藏勇士的服装选择券×1、继承之书×3、武器属性重置券×5。</p>
+
+            <p><strong>3. 个人排名奖励</strong><br>活动结束后，根据玩家个人累计捐献信物数量进行全服百分比排名，按照排名梯度发放对应奖励。官方贴图存在标注错误，实际奖励为隐藏勇士的服装选择券。</p>
+
+            <h3>七、活动玩法贴士与总结</h3>
+            <ul>
+                <li>活动核心博弈为“枪打出头鸟”，高排名阵营会被另外两方联合针对，战局充满不确定性。</li>
+                <li>所有阵营胜负、奖励判定均以<strong>累计兵力</strong>为准，并非即时兵力。</li>
+                <li>零氪、压轴玩家务必开局捐献1个信物，否则无法领取全程回合奖励。</li>
+                <li>活动无专属商店，信物全部依靠日常资源兑换，有效规避了外挂刷分问题，同时弱化了资源大佬的碾压优势。</li>
+                <li>国王进贡是左右战局的核心机制，单次进贡失败的兵力惩罚远超玩家正常捐献收益，是阵营翻盘、落后逆袭的关键。</li>
+                <li>服务器玩家时段差异明显，白天进贡需求基本可全员满足，夜间玩家人数少、进贡难以达标，是阵营对抗的核心主战场。</li>
+                <li>该活动追赶机制较弱，时间绑定性强，需要玩家定时参与对抗，玩法体验争议较大，官方已对该活动进行回炉重造优化。</li>
+            </ul>
+        </div>
+    </div>
+
+    <button id="backTop">↑</button>
+    <footer>克鲁赛德战记 © 2026 毕业设计</footer>
+
+    <script>
+        const backTop = document.getElementById("backTop");
+        window.addEventListener("scroll", function () {
+            backTop.classList.toggle("show", window.scrollY > 300);
+        });
+        backTop.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+</body>
+</html>

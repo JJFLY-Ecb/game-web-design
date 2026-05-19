@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>女神与领主大全</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: "Microsoft YaHei", sans-serif; 
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body { 
+            background: #f0e8d8; 
+        }
+        nav { 
+            background: #1a1a1a; 
+            position: sticky; 
+            top: 0; 
+            z-index: 999;
+        }
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            max-width: 1100px; 
+            margin: auto; 
+        }
+        nav li { 
+            flex: 1; 
+            text-align: center;
+        }
+        nav a { 
+            display: block; 
+            color: #fff; 
+            text-decoration: none; 
+            padding: 15px 0; 
+            transition: 0.3s;
+        }
+        nav a:hover, nav a.active { 
+            background: #d4af37; 
+            color: #000;
+        }
+        .container {
+            max-width: 1200px,
+            margin： 40px auto;
+            padding: 0 20px;
+        }
+        .page-title {
+            text-align: center;
+            color: #8a6d3b;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        .tab-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .tab {
+            padding: 12px 24px;
+            background: #fff8e8;
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #8a6d3b;
+            transition: 0.3s;
+        }
+        .tab.active {
+            background: #d4af37;
+            color: #000;
+        }
+        .content-box {
+            background: #fff8e8;
+            border: 2px solid #d4af37;
+            border-radius: 12px;
+            padding: 35px;
+            display: none;
+        }
+        .content-box.show {
+            display: block;
+        }
+        .content-box h2 {
+            color: #8a6d3b;
+            font-size: 26px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .content-box h3 {
+            color: #8a6d3b;
+            font-size: 20px;
+            margin: 25px 0 12px;
+            border-left: 4px solid #d4af37;
+            padding-left: 12px;
+        }
+        .content-box p {
+            color: #555;
+            font-size: 16px;
+            line-height: 2;
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+        }
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            font-size: 15px;
+            line-height: 1.8;
+            vertical-align: middle;
+        }
+        table th {
+            background: #d4af37;
+            color: #000;
+        }
+        .avatar-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+            margin: 0 auto 4px;
+        }
+        #backTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: #d4af37;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 99;
+            border: none;
+        }
+        #backTop.show {
+            opacity: 1;
+        }
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        @media (max-width: 768px) {
+            nav ul { flex-wrap: wrap; }
+            nav li { flex: 0 0 50%; }
+            .content-box { padding: 20px; }
+            .page-title { font-size: 26px; }
+            table th, table td { padding: 8px; font-size: 13px; }
+            .avatar-img { width: 50px; height: 50px; }
+        }
+        @media (max-width: 480px) {
+            nav li { flex: 0 0 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="../home/index.html">主页</a></li>
+        <li><a href="../characters/character.html">角色</a></li>
+        <li><a href="assist.html" class="active">辅助</a></li>
+        <li><a href="../stories/story.html">剧情</a></li>
+        <li><a href="../events/event.html">活动</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h1 class="page-title">女神 & 领主 大全</h1>
+
+    <div class="tab-box">
+        <div class="tab active" data-target="godness">女神系统</div>
+        <div class="tab" data-target="lord">领主系统</div>
+    </div>
+
+    <!-- 女神板块 -->
+    <div class="content-box show" id="godness">
+        <h2>克鲁赛德战记 全女神详细图鉴</h2>
+        <table>
+            <tr>
+                <th>女神</th>
+                <th>技能介绍</th>
+                <th>备注</th>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/sera.png" alt="塞拉" class="avatar-img">
+                    塞拉
+                </td>
+                <td>【曲光屏障】<br>生成防护罩保护我方。使用后1秒内抵挡100%伤害，之后1秒内可抵挡50%伤害。<br>冷却时间：2秒</td>
+                <td>减伤buff可以绕过80%的减伤上限；已拥有80%减伤的单位吃到第二段效果时拥有90%减伤。</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/forestina.png" alt="菲蕾丝蒂娜" class="avatar-img">
+                    菲蕾丝蒂娜
+                </td>
+                <td>【缠绕之根】<br>4秒内使所有敌人无法移动。我方受到伤害时，回复最大体力的5%；造成攻击时，吸收30%伤害转化为体力。<br>冷却时间：3秒</td>
+                <td>禁锢效果第一秒无效，实际禁锢只有3秒。</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/anute.png" alt="亚奴特" class="avatar-img">
+                    亚奴特
+                </td>
+                <td>【征服之沙】<br>4秒内减少所有敌人50%攻击力，同时解除敌人所有增益效果。<br>冷却时间：4秒</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/alfree.png" alt="阿勒芙蕾" class="avatar-img">
+                    阿勒芙蕾
+                </td>
+                <td>【星之祝福】<br>解除我方所有减益效果，4秒间免疫减益；我方增益持续时间增加3秒，效果量增加25%。<br>冷却时间：4秒</td>
+                <td>增益增幅对每个增益独立生效；可与瓦莉效果乘叠。</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/bella.png" alt="贝拉" class="avatar-img">
+                    贝拉
+                </td>
+                <td>【血之沸腾】<br>4秒内我方所有攻击附加50%伤害等值真实伤害；全队体型增加30%。<br>冷却时间：4秒</td>
+                <td>伤害来源为勇士自身；附加伤害基准不受增伤、易伤、抗性影响且必定命中；原伤害穿坦则附加伤害也穿坦；原伤害与附加伤害分别计算易伤。</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/dione.png" alt="迪欧奈" class="avatar-img">
+                    迪欧奈
+                </td>
+                <td>【冰川风暴】<br>造成全部敌人最大体力5%真实伤害，将敌人击飞；后续敌人攻击50%概率无法命中。<br>冷却时间：4.5秒</td>
+                <td>伤害和减益同时施加，技能前摇1.3秒。</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/chronos.png" alt="库洛诺斯" class="avatar-img">
+                    库洛诺斯
+                </td>
+                <td>【预见的命运】<br>4秒内敌人动作速度减少50%；效果结束时，队友期间最后一次使用的技能（含SP）将再施放一次。<br>冷却时间：4秒</td>
+                <td>若勇士被清除增益，技能重复施放效果会立刻执行。</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/silunis.png" alt="席鲁尼丝" class="avatar-img">
+                    席鲁尼丝
+                </td>
+                <td>【光与黑暗】<br>4秒间队友全能力值增加20%；效果结束后，敌方全体回避-50。<br>冷却时间：6秒</td>
+                <td>回避减益持续2秒；全属性不含减伤、吸血、攻速；对暴击、爆伤等属性均为百分比加成。</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 领主板块 -->
+    <div class="content-box" id="lord">
+        <h2>克鲁赛德战记 全领主图鉴</h2>
+        <table>
+            <tr>
+                <th>领主</th>
+                <th>解锁勇士 / 所属势力</th>
+                <th>技能（最高等级）</th>
+                <th>推荐培养优先度</th>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/hong.png" alt="红" class="avatar-img">
+                    红
+                </td>
+                <td>攻击型<br>东部王国-柳国<br>将军须佐能乎</td>
+                <td><b>主动 Lv7 红莲初线</b><br>冷却10秒，可用4次<br>挥舞初线冒出火花造成攻击力600%物理伤害，爆发8个火花造成400%物理伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 火焰斩</b><br>我方物理穿透+1000。<br><b>精淬 Lv1 红莲指引</b><br>回合开始生成两个队长方块。</td>
+                <td>★★★</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/remy.png" alt="蕾米" class="avatar-img">
+                    蕾米
+                </td>
+                <td>功能型<br>狂欢城镇<br>夜之女王瑞秋</td>
+                <td><b>主动 Lv7 朦胧猫咪</b><br>冷却10秒，可用4次<br>尾巴刺击造成1000%魔法伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 朦胧缧绁</b><br>我方魔法穿透+1000。<br><b>精淬 Lv1 魔女的礼物</b><br>回合开始生成2个队长方块。</td>
+                <td>★★★</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/galahad.png" alt="加拉哈德" class="avatar-img">
+                    加拉哈德
+                </td>
+                <td>防御型<br>格兰西亚帝国<br>皇帝亚历山大</td>
+                <td><b>主动 Lv5 坚强的守护</b><br>冷却10秒，可用4次<br>登场造成600%物理伤害，退场造成400%物理伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 骑士之心</b><br>我方暴击抵抗率+30%。<br><b>精淬 Lv1 临阵不退</b><br>队长放特殊技能时，7秒内暴击抵抗率+70%。</td>
+                <td>★☆</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/winchester.png" alt="马夫·温彻斯特" class="avatar-img">
+                    马夫·温彻斯特
+                </td>
+                <td>功能型<br>自由的勇士</td>
+                <td><b>主动 Lv5 自由的勇士们</b><br>冷却10秒，可用4次<br>炮击造成600%物理伤害，突进造成400%物理伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 信任的信件</b><br>我方命中+30。<br><b>精淬 Lv3 乔安女士</b><br>队长放特殊技能时乔安登场，造成4000%物理伤害，5秒命中+70。</td>
+                <td>★★</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/franz.png" alt="佛朗兹" class="avatar-img">
+                    佛朗兹
+                </td>
+                <td>攻击型<br>涅斯帝国<br>电子人斯佩妮</td>
+                <td><b>主动 Lv5 火力交叉</b><br>冷却10秒，可用4次<br>导弹造成600%物理伤害，核融合弹造成400%物理伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 精确瞄准</b><br>我方暴击伤害+80%。<br><b>精淬 Lv1 指挥战术</b><br>使用3消时，3秒内暴击伤害+120%。</td>
+                <td>★★★★½</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/westwind.png" alt="西风" class="avatar-img">
+                    西风
+                </td>
+                <td>功能型<br>东部王国-汉<br>月圆奇波郎</td>
+                <td><b>主动 Lv5 邪术-暴风</b><br>冷却10秒，可用4次<br>9秒持续600%魔法伤害，结束追加400%魔法伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 邪术-神鼓之曲</b><br>我方攻速+100%。<br><b>精淬 Lv1 邪术-大吹打</b><br>回合开始15秒免疫减益。</td>
+                <td>★★★</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/ibelin.png" alt="伊贝琳" class="avatar-img">
+                    伊贝琳
+                </td>
+                <td>攻击型<br>南西部联盟<br>牛仔梅西</td>
+                <td><b>主动 Lv5 作战开始</b><br>冷却10秒，可用4次<br>部队登场造成600%物理伤害，投掷手雷造成400%物理伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 指挥战斗</b><br>我方暴击率+20%。<br><b>精淬 Lv1 斗志</b><br>暴击时对全体造成自身100%物理伤害。</td>
+                <td>★★★★</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/agrios.png" alt="野兽之王 阿格里奥斯" class="avatar-img">
+                    野兽之王 阿格里奥斯
+                </td>
+                <td>攻击型<br>罗曼共和国<br>战神阿基里斯</td>
+                <td><b>主动 Lv5 野性咆哮</b><br>冷却10秒，可用4次<br>前脚挥击600%物理伤害，火焰吐息400%物理伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 兽王守护</b><br>我方物理伤害+20%。<br><b>精淬 Lv1 光荣的盾牌</b><br>释放领主技能7秒内物理伤害+40%。</td>
+                <td>★★★★½</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/noah.png" alt="诺雅" class="avatar-img">
+                    诺雅
+                </td>
+                <td>攻击型<br>女神教<br>魔法傀儡师·贝萝特</td>
+                <td><b>主动 Lv5 降临</b><br>冷却10秒，可用4次<br>登场600%魔法伤害，退场400%魔法伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 祝福</b><br>我方魔法伤害+20%。<br><b>精淬 Lv1 艾泽兰的意志</b><br>释放领主技能7秒内魔法伤害+40%。</td>
+                <td>★★★★½</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/ria.png" alt="丽雅" class="avatar-img">
+                    丽雅
+                </td>
+                <td>功能型<br>诺斯加尔德<br>雷神托尔</td>
+                <td><b>主动 Lv5 冰河一击</b><br>冷却10秒，可用4次<br>冰枪600%魔法伤害，爆炸400%魔法伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 梦幻的暴风雪</b><br>我方回避+30。<br><b>精淬 Lv1 雪山的旋律</b><br>队长放特殊技能召唤冰雕像，造成4000%魔法伤害，5秒回避+70。</td>
+                <td>★★★</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/einadale.png" alt="爱因戴尔" class="avatar-img">
+                    爱因戴尔
+                </td>
+                <td>功能型<br>少数民族联合<br>万能的乌帕</td>
+                <td><b>主动 Lv5 联合战车</b><br>冷却10秒，可用4次<br>3秒持续600%魔法伤害，导弹400%魔法伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 团结</b><br>我方吸血+20%。<br><b>精淬 Lv1 坚固的团结</b><br>每15次恢复触发联合之力，造成800%魔法伤害，敌方5秒承伤+40%。</td>
+                <td>★★★★★</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="../../images/lvhe.png" alt="吕何" class="avatar-img">
+                    吕何
+                </td>
+                <td>攻击型<br>东部王国-陈<br>五虎大将军 汉升</td>
+                <td><b>主动 Lv5 胜负手</b><br>冷却10秒，可用4次<br>对局造成600%魔法伤害，掀棋盘400%魔法伤害；6秒生成方块速度缩短80%。<br><b>被动 Lv3 两端手</b><br>我方攻击力+10%。<br><b>精淬 Lv1 读秒</b><br>释放领主技能7秒内攻击力+20%。</td>
+                <td>★☆</td>
+            </tr>
+        </table>
+
+        <h3>领主 纽带等级（羁绊等级）介绍</h3>
+        <p>纽带等级是领主达到7级后的第二成长系统，需捐献对应势力金卷解锁突破。</p>
+        <table>
+            <tr>
+                <th>突破阶段</th>
+                <th>所需金卷</th>
+            </tr>
+            <tr>
+                <td>领主7级 → 纽带1级</td>
+                <td>1个5书金卷</td>
+            </tr>
+            <tr>
+                <td>纽带49级 → 50级</td>
+                <td>2个10书金卷</td>
+            </tr>
+            <tr>
+                <td>纽带99级 → 100级</td>
+                <td>3个15书金卷</td>
+            </tr>
+        </table>
+        <p>纽带等级最高100级；1~49级每级100经验，50~99级每级200经验。<br>未突破1/50/99级时，经验不会上涨，只会积累支援箱子进度。<br>升级可喂机器人、白卷、传说角色，仅突破节点必须消耗金卷。</p>
+        <p><b>属性加成：</b><br>每1级：所属势力勇士生命+100、暴击率+0.01%<br>每2级：攻击力+7.5、爆伤+0.1%<br>满100级总计：生命+10000、暴击+1%、爆伤+5%、攻击力+375。</p>
+        <p>无势力联动角色，享受全团长最高纽带等级加成。<br>纽带1/50/100级可解锁额外被动，三选一装备，互相冲突；不装备时领主主动造块缩减固定80%。</p>
+    </div>
+</div>
+
+<button id="backTop">↑</button>
+<footer>克鲁赛德战记 © 2026 毕业设计</footer>
+
+<script>
+    const tabs = document.querySelectorAll('.tab');
+    const contentBoxes = document.querySelectorAll('.content-box');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            contentBoxes.forEach(c => c.classList.remove('show'));
+            tab.classList.add('active');
+            const target = tab.dataset.target;
+            document.getElementById(target).classList.add('show');
+        });
+    });
+
+    const backTop = document.getElementById("backTop");
+    window.addEventListener("scroll", function () {
+        backTop.classList.toggle("show", window.scrollY > 300);
+    });
+    backTop.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
+</body>
+</html>

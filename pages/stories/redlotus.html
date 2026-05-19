@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>克鲁赛德战记 - 红莲之力</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #180c0c;
+            background-image: radial-gradient(#461a1a 0%, #180c0c 70%);
+            color: #f8d2d2;
+            font-family: "微软雅黑", sans-serif;
+            line-height: 1.9;
+            min-height: 100vh;
+        }
+        /* 左侧新图 不反转 左半屏 */
+        .left-img {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100vh;
+            object-fit: contain;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        /* 右侧原有BOSS图 保持反转 */
+        .boss-bg {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100vh;
+            object-fit: contain;
+            opacity: 0.3;
+            transform: scaleX(-1);
+            z-index: 1;
+        }
+        /* 内容置顶不被遮挡 */
+        .main-nav, .tab-nav, .container {
+            position: relative;
+            z-index: 99;
+        }
+        /* 文字板块彻底透明 */
+        .story-content {
+            background: transparent !important;
+            border: none !important;
+            backdrop-filter: none !important;
+        }
+        .data-box {
+            background-color: rgba(44,21,21,0.3);
+            border: 1px solid #7a2e2e;
+            padding: 18px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        /* 顶部主导航 */
+        .main-nav {
+            background-color: #241212;
+            border-bottom: 2px solid #c74c4c;
+            padding: 14px 0;
+        }
+        .main-nav__list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+        }
+        .main-nav__link {
+            color: #e88686;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 6px 18px;
+            border-radius: 3px;
+            transition: 0.3s ease;
+        }
+        .main-nav__link:hover,
+        .main-nav__link--active {
+            background-color: #3a1c1c;
+            color: #ff7777;
+        }
+        /* 剧情标签切换按钮 */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .story-tabs__button {
+            padding: 8px 20px;
+            border: 2px solid #c74c4c;
+            border-radius: 4px;
+            background-color: #241212;
+            color: #e88686;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .story-tabs__button--active {
+            background-color: #c74c4c;
+            color: #180c0c;
+        }
+        .story-tabs__button:hover {
+            background-color: #3a1c1c;
+            color: #ff7777;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 25px 50px;
+        }
+        .story-title {
+            font-size: 32px;
+            text-align: center;
+            color: #ff7777;
+            letter-spacing: 4px;
+            margin-bottom: 35px;
+            text-shadow: 0 0 12px rgba(255,119,119,0.35);
+            border-bottom: 1px solid #7a2e2e;
+            padding-bottom: 15px;
+        }
+        .story-img {
+            width: 100%;
+            border: 4px solid #7a2e2e;
+            border-radius: 6px;
+            box-shadow: 0 0 30px rgba(199,76,76,0.25);
+            margin-bottom: 40px;
+        }
+        .sub-title {
+            font-size: 20px;
+            color: #ff7777;
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #c74c4c;
+        }
+        .story-content p {
+            margin-bottom: 18px;
+        }
+        .info-list {
+            padding-left: 22px;
+            margin: 10px 0;
+        }
+        .text-high {
+            color: #ff9999;
+        }
+        .text-red {
+            color: #ff5555;
+        }
+        .text-blue {
+            color: #72c6ff;
+        }
+    </style>
+</head>
+<body>
+<!-- 左侧新图 无反转 -->
+<img class="left-img" src="../../images/red_left.png" alt="红莲左侧配图">
+<!-- 右侧原有BOSS图 保留反转 -->
+<img class="boss-bg" src="../../images/redlotus_boss.png" alt="红莲BOSS">
+
+<nav class="main-nav">
+    <ul class="main-nav__list">
+        <li class="main-nav__item"><a href="../home/index.html" class="main-nav__link">主页</a></li>
+        <li class="main-nav__item"><a href="../characters/character.html" class="main-nav__link">角色</a></li>
+        <li class="main-nav__item"><a href="../assist/assist.html" class="main-nav__link">辅助</a></li>
+        <li class="main-nav__item"><a href="story.html" class="main-nav__link main-nav__link--active">剧情</a></li>
+        <li class="main-nav__item"><a href="../events/event.html" class="main-nav__link">活动</a></li>
+    </ul>
+</nav>
+
+<div class="tab-nav">
+    <button class="story-tabs__button" onclick="location.href='story.html'">主线剧情</button>
+    <button class="story-tabs__button" onclick="location.href='guardian.html'">讨伐遗迹的守护者</button>
+    <button class="story-tabs__button" onclick="location.href='soulfort.html'">外传灵魂要塞</button>
+    <button class="story-tabs__button story-tabs__button--active">外传红莲之力</button>
+</div>
+
+<div class="container">
+    <h1 class="story-title">外传：红莲之力 Red Lotus Power</h1>
+    <img src="../../images/redlotus.png" alt="红莲之力" class="story-img">
+
+    <div class="story-content">
+        <p>红莲之力是《克鲁赛德战记》高难度外传挑战副本，源自上古红莲魔神遗留的火焰本源之力，整片领域被无尽烈焰笼罩，常年处于高温焚化环境之中。只有通关灵魂要塞全部层数、拥有足够角色练度的勇士，方可解锁此篇外传内容。</p>
+        <p>此地栖息着被红莲之火浸染的魔物与烈焰使徒，所有战斗场景附带全域灼烧效果，常规续航阵容受到极大压制，是偏向爆发输出与火属性抗性的专属挑战副本。</p>
+
+        <h2 class="sub-title">一、副本入场规则</h2>
+        <p>1. 解锁条件：通关灵魂要塞顶层关卡，解锁第二季外传全部权限；</p>
+        <p>2. 入场消耗：每日限定挑战次数，额外挑战需消耗烈焰晶石；</p>
+        <p>3. 全域被动效果：全场持续<span class="text-red">火焰灼烧</span>，每回合稳定流失生命值，无法依靠普通回血完全抵消；</p>
+        <p>4. 副本专属加成：火属性角色全属性大幅提升，水属性角色受到伤害额外增加。</p>
+
+        <h2 class="sub-title">二、关卡阶段划分</h2>
+        <ul class="info-list">
+            <li>红莲初章：烈焰杂兵聚集区，熟悉灼烧环境战斗节奏</li>
+            <li>红莲中章：烈焰守卫驻守，拥有高额火焰免伤与范围火焰爆发</li>
+            <li>红莲终章：红莲使徒坐镇，拥有变身机制与全屏灭世烈焰技能</li>
+        </ul>
+
+        <h2 class="sub-title">三、BOSS核心机制</h2>
+        <div class="data-box">
+            <p><strong>烈焰守卫 · 焚影</strong></p>
+            <p>常驻火焰护盾，护盾存在期间减免所有非火属性伤害，定期释放横向烈焰冲击波，击退全队并附加持续燃伤。血量低于40%进入狂暴状态，攻击速度与伤害翻倍。</p>
+        </div>
+        <div class="data-box">
+            <p><strong>红莲使徒 · 烬夜</strong></p>
+            <p>拥有双形态战斗模式，常态持续铺展火焰领域，限制敌方治疗效果；变身之后召唤红莲业火，大范围持续秒杀低血量单位，战斗中会随机封印勇士消块能力，极大限制输出节奏。</p>
+        </div>
+
+        <h2 class="sub-title">四、掉落道具与养成用途</h2>
+        <p>通关红莲之力副本可获取<span class="text-high">红莲火种、烈焰之心、火焰专属符文</span>等稀有材料。</p>
+        <p>主要用于火系角色极限突破、火焰套装符文合成、解锁红莲系列专属外观与战斗特效，是游戏后期火系毕业必不可缺的核心资源副本。</p>
+
+        <h2 class="sub-title">五、通关搭配思路</h2>
+        <p>优先选择高爆发瞬杀阵容、火伤减免坦克、护盾型辅助角色，放弃慢速续航体系。搭配火焰抗性女神与净化类角色，解除燃烧与封印负面状态，最快速度斩杀BOSS结束战斗，减少灼烧带来的血量损耗。</p>
+
+        <h2 class="sub-title">六、玩法总结</h2>
+        <p>红莲之力外传偏向属性克制与速战速决打法，环境压制性极强，非常考验玩家属性阵容深度与临场操作节奏，熟练利用属性克制与机制规避灼烧伤害，才能稳稳拿下全部关卡奖励，完成火系战力最终成型。</p>
+    </div>
+</div>
+
+<script>
+const pageTitle = document.title;
+const pageUrl = window.location.href;
+const time = new Date().toLocaleString();
+const record = {title:pageTitle,url:pageUrl,time:time};
+let historyList = JSON.parse(localStorage.getItem("historyList")) || [];
+historyList = historyList.filter(item => item.url !== pageUrl);
+historyList.unshift(record);
+if(historyList.length > 10) historyList = historyList.slice(0,10);
+localStorage.setItem("historyList",JSON.stringify(historyList));
+</script>
+</body>
+</html>
